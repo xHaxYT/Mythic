@@ -20,12 +20,7 @@ bot.on("message", async message => {
   if (cmd === "hello") {
     return message.channel.send("Hello");
   }
-  //clan intro
-  if (cmd === "clan-intro") {
-    return message.author.send(
-      "Here is Mythic Official Clan intro: https://drive.google.com/file/d/1Ay_JkN_mbfsczRtMLu3IaNW9PjZK2LR2/view"
-    );
-  }
+
   //help command
   if (cmd === "help") {
     let sEmbed = new Discord.RichEmbed()
