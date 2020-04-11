@@ -2,7 +2,11 @@ const http = require("http")
 const express = require("express")
 const app = express();
 app.get ("/", (request, response) => { 
-  console.log(Date.now) })
+  console.log(Date.now() + " Ping Received");
+  response.sendStatus(200);
+});
+app.listen(process.env.PORT);
+setInterval
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const colours = require("./colours.json");
