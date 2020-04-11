@@ -30,6 +30,7 @@ bot.on("message", async message => {
       .addField("**!status**", "See if is bot running");
     return message.author.send({ embed: sEmbed });
   }
+
 });
 
 bot.login(botconfig.token);
