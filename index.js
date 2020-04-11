@@ -1,4 +1,12 @@
-
+const http = require("http")
+const express = require("express")
+const app = express();
+app.get ("/", (request, response) => { 
+  console.log(Date.now() + " Ping Received");
+  response.sendStatus(200);
+});
+app.listen(process.env.PORT);
+setInterval(() => {})
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const colours = require("./colours.json");
@@ -17,20 +25,24 @@ bot.on("message", async message => {
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
   //test command
-  if (cmd === "!status") {
-    return message.channel.send(":white_check_mark: I'm alive.");
+  if (cmd === "hello") {
+    return message.channel.send("Hello");
   }
-
+  //clan intro
+  if (cmd === "clan-intro") {
+    return message.author.send(
+      "Here is Mythic Official Clan intro: https://drive.google.com/file/d/1Ay_JkN_mbfsczRtMLu3IaNW9PjZK2LR2/view"
+    );
+  }
   //help command
-  if (cmd === "!help") {
+  if (cmd === "help") {
     let sEmbed = new Discord.RichEmbed()
       .setColor(colours.lime)
       .setTitle("List of Commands")
-      .addField("**!help**", "Send you list of commands")
-      .addField("**!status**", "See if is bot running");
+      .addField("**clan-intro**", "Official Clan Inro")
+      .addField("**help**", "Send you list of commands");
     return message.author.send({ embed: sEmbed });
   }
-
 });
 
 bot.login(botconfig.token);
