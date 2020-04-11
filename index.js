@@ -17,17 +17,17 @@ bot.on("message", async message => {
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
   //test command
-  if (cmd === "hello") {
-    return message.channel.send("Hello");
+  if (cmd === "!status") {
+    return message.channel.send(":white_check_mark: I'm alive.");
   }
 
   //help command
-  if (cmd === "help") {
+  if (cmd === "!help") {
     let sEmbed = new Discord.RichEmbed()
       .setColor(colours.lime)
       .setTitle("List of Commands")
-      .addField("**clan-intro**", "Official Clan Inro")
-      .addField("**help**", "Send you list of commands");
+      .addField("**!help**", "Send you list of commands")
+      .addField("**!status**", "See if is bot running");
     return message.author.send({ embed: sEmbed });
   }
 });
