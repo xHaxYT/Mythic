@@ -29,12 +29,12 @@ module.exports.run = async (bot, message, args) => {
 
         let Sembed = new Discord.RichEmbed()
         .setColor(colours.cyan)
-        .setAuthor(`TestBOT Help`, message.guild.iconURL)
+        .setAuthor(`MYTHIC Clan Help`, message.guild.iconURL)
         .setThumbnail(bot.user.displayAvatarURL)
         .setTimestamp()
-        .setDescription(`These are the avaliable commands for the TestBOT!\nThe bot prefix is: ${prefix}`)
-        .addField(`Commands:`, "``xxx``")
-        .setFooter("Test Bot 2k18", bot.user.displayAvatarURL)
+        .setDescription(`These are the avaliable commands for the MYTHIC Clan!\nThe bot prefix is: ${prefix}`)
+        .addField(`Commands:`, "``help``")
+        .setFooter("MYTHIC Clan", bot.user.displayAvatarURL)
         message.channel.send(embed).then(m => m.delete(10000));
         message.author.send(Sembed)
     }
