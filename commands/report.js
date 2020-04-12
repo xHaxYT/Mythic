@@ -20,11 +20,15 @@ module.exports.run = async (bot, message, args) => {
     let ssEmbed = new Discord.RichEmbed()
     .setColor(colours.red)
     .setAuthor(`[REPORT] ${target.user.tag}`, target.user.displayAvatarURL)
+    .setTimestamp()
     .addField("**User**", `**${message.author}**`, true)
     .addField("**Reported user**", `**${target.user}**`, true)
     .addField("**Reason**", `${reason}`, true)
     .setFooter(`MYTHIC Clan`, bot.user.displayAvatarURL);
-    sChannel.send({embed: ssEmbed});
+    sChannel.send({embed: ssEmbed}).then(async msg => {
+        await msg.react("✅")
+        await msg.react("❌")
+    })
     message.channel.send("Your report has been filed to the staff team. Thank you!").then(m => m.delete(15000))
 
 
