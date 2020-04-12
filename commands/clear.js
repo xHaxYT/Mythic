@@ -39,6 +39,6 @@ module.exports.config = {
     name: "clear",
     aliases: ["c"],
     usage: "!usage",
-    description: "Clear Messgaes",
+    description: "Clear Messges",
     accessableby: "Staff"
 }
