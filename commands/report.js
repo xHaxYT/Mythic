@@ -1,4 +1,5 @@
 const Discord = require("discord.js")
+const colours = require("../colours.json")
 
 module.exports.run = async (bot, message, args) => {
 
@@ -17,11 +18,12 @@ module.exports.run = async (bot, message, args) => {
     // send to reports channel and add tick or cross
 
     let ssEmbed = new Discord.RichEmbed()
+    .setColour(colours.reddark)
     .setTitle("Report!")
     .setAuthor(`${target.user.tag}`, target.user.displayAvatarURL)
-    .addField("**User**", `**${message.mention.author}**`, true)
-    .addField("**Reported**", `**${target.user.tag}**`, true)
-    .addField("**Reason**", `**${reason}**`, true)
+    .addField("**User**", `**${message.author}**`, true)
+    .addField("**Reported**", `**${target.user}**`, true)
+    .addField("**Reason**", `${reason}`, true)
     .setFooter(`MYTHIC Clan`, bot.user.displayAvatarURL);
     sChannel.send({embed: ssEmbed});
     message.channel.send("Your report has been filed to the staff team. Thank you!").then(m => m.delete(15000))
