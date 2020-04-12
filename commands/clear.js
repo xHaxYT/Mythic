@@ -30,7 +30,8 @@ module.exports.run = async (bot, message, args) => {
         }
 
         message.channel.bulkDelete(deleteAmount, true)
-            .then(deleted => message.channel.send(`I deleted \`${deleted.size}\` messages.`))
+            .then(deleted => message.channel.send(`I deleted \**${deleted.size}\** messages.`))
+            .then(m => m.delete(15000))
             .catch(err => message.reply(`Something went wrong... ${err}`));
     }
 

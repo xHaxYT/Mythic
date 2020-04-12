@@ -34,6 +34,7 @@ module.exports.run = async (bot, message, args) => {
         .setTimestamp()
         .setDescription(`These are the avaliable commands for the MYTHIC Clan!\nThe bot prefix is: ${prefix}`)
         .addField(`Commands:`, "``help`` ``report``")
+        .addField(`Staff commands:`, "``clear``")
         .setFooter("MYTHIC Clan", bot.user.displayAvatarURL)
         message.channel.send(embed);
         message.author.send(Sembed)
