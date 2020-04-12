@@ -18,8 +18,10 @@ module.exports.run = async (bot, message, args) => {
 
     let ssEmbed = new Discord.RichEmbed()
     .setTitle("Report!")
-    .setAuthor(`${message.guild.name} Info`, message.guild.iconURL)
-    .addField("**Server Name:**", `${message.guild.name}`, true)
+    .setAuthor(`${target.user.tag}`, target.user.displayAvatarURL)
+    .addField("**User**", `**${message.author.ping}**`, true)
+    .addField("**Reported**", `**${target.user.tag}**`, true)
+    .addField("**Reason**", `**${reason}**`, true)
     .setFooter(`MYTHIC Clan`, bot.user.displayAvatarURL);
     sChannel.send({embed: ssEmbed});
     message.channel.send("Your report has been filed to the staff team. Thank you!").then(m => m.delete(15000))
