@@ -47,12 +47,12 @@ y.addListener("data", res => {
 });
 
 bot.on('ready', () => {
-  var logChannel = bot.channels.fin(channel => channel.id === "698911263748653197");
+  var logChannel = bot.channels.find(channel => channel.id === "698911263748653197");
   console.log('The bot is online!');
 
 setInterval(() => {
   logChannel.send("Iam online!");
-}, 100000);
+}, 60000);
 });
 
 
