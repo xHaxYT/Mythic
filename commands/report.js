@@ -18,11 +18,10 @@ module.exports.run = async (bot, message, args) => {
     // send to reports channel and add tick or cross
 
     let ssEmbed = new Discord.RichEmbed()
-    .setTitle("Report!")
     .setColor(colours.red)
-    .setAuthor(`${target.user.tag}`, target.user.displayAvatarURL)
+    .setAuthor(`[REPORT] ${target.user.tag}`, target.user.displayAvatarURL)
     .addField("**User**", `**${message.author}**`, true)
-    .addField("**Reported**", `**${target.user}**`, true)
+    .addField("**Reported user**", `**${target.user}**`, true)
     .addField("**Reason**", `${reason}`, true)
     .setFooter(`MYTHIC Clan`, bot.user.displayAvatarURL);
     sChannel.send({embed: ssEmbed});
