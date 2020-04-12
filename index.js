@@ -46,6 +46,14 @@ y.addListener("data", res => {
     bot.channels.get("555039958121971736").send(x.join(" "));
 });
 
+bot.on('ready', () => {
+  var logChannel = bot.channels.fin(channel => channel.id === "698911263748653197");
+  console.log('The bot is online!');
+
+setInterval(() => {
+  logChannel.send("Iam online!");
+}, 100000);
+});
 
 
 bot.on("message", async message => {
