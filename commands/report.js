@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
     let ssEmbed = new Discord.RichEmbed()
     .setTitle("Report!")
     .setAuthor(`${target.user.tag}`, target.user.displayAvatarURL)
-    .addField("**User**", `**${message.author.ping}**`, true)
+    .addField("**User**", `**${message.mention.author}**`, true)
     .addField("**Reported**", `**${target.user.tag}**`, true)
     .addField("**Reason**", `**${reason}**`, true)
     .setFooter(`MYTHIC Clan`, bot.user.displayAvatarURL);
@@ -34,5 +34,5 @@ module.exports.config = {
     description: "reports a user of the guild",
     usage: "!report <user> <reason>",
     accessableby: "Members",
-    aliases: []
+    aliases: ["rep"]
 }
