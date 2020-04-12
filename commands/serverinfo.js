@@ -9,9 +9,10 @@ module.exports.run = async (bot, message, args) => {
     .setTitle("Server Info")
     .setThumbnail(message.guild.iconURL)
     .setAuthor(`${message.guild.name} Info`, message.guild.iconURL)
-    .addField("**Guild Name:**", `${message.guild.name}`, true)
-    .addField("**Guild Owner:**", `${message.guild.owner}`, true)
-    .addField("**Guild Admins:**", ``, true)
+    .addField("**Server Name:**", `${message.guild.name}`, true)
+    .addField("**Server Owner:**", `${message.guild.owner}`, true)
+    .addField("**Server Co-Owner:**", `<@590156078873051137>`, true)
+    .addField("**Server Admins:**", `<@524636777365897217> <@599207772176777227>`, true)
     .addField("**Member Count:**", `${message.guild.memberCount}`, true)
     .setFooter(`MYTHIC Clan`, bot.user.displayAvatarURL);
     message.channel.send({embed: sEmbed});
