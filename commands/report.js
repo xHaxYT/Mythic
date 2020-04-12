@@ -16,11 +16,14 @@ module.exports.run = async (bot, message, args) => {
 
     // send to reports channel and add tick or cross
 
+    let ssEmbed = new Discord.RichEmbed()
+    .setTitle("Report!")
+    .setAuthor(`${message.guild.name} Info`, message.guild.iconURL)
+    .addField("**Server Name:**", `${message.guild.name}`, true)
+    .setFooter(`MYTHIC Clan`, bot.user.displayAvatarURL);
+    sChannel.send({embed: ssEmbed});
     message.channel.send("Your report has been filed to the staff team. Thank you!").then(m => m.delete(15000))
-    sChannel.send(`**${message.author.tag}** has reported **${target.user.tag}** for **${reason}**.`).then(async msg => {
-        await msg.react("✅")
-        await msg.react("❌")
-    })
+
 
 }
 
