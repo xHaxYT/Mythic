@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
     .setTimestamp()
     .addField("**Warned User**", `**${target.user}**`, true)
     .addField("**Moderator**", `**${message.author}**`, true)
-    .addField("**Reason**", `**${target.user.tag}** you got a warning for this reason: **${reason}**. Do not do it again! Thank you, *MYTHIC Staff team*` , true)
+    .addField("**Reason**", `**${target.user.tag}** you got a warning for **${reason}**. Do not do it again! Thank you, *MYTHIC Staff team*` , true)
     .setFooter(`MYTHIC Clan`, bot.user.displayAvatarURL);
     sChannel.send({embed: ssEmbed})
     message.channel.send("User has been warned!").then(m => m.delete(15000))

@@ -3,7 +3,7 @@ const colours = require("../colours.json")
 
 module.exports.run = async (bot, message, args) => {
 
-    message.delete()
+    
     // mentioned or grabbed user
     let target = message.mentions.members.first() || message.guild.members.get(args[0])
     if(!target) return message.channel.send("Please provide a valid user").then(m => m.delete(15000))
@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
     .setTimestamp()
     .addField("**Warned User**", `**${target.user}**`, true)
     .addField("**Moderator**", `**${message.author}**`, true)
-    .addField("**Reason**", `${reason}`, true)
+    .addField("**Reason**", `**${target.user.tag}** dostal si varování za **${reason}**. Do not do it again! Thank you, *MYTHIC Staff team*` , true)
     .setFooter(`MYTHIC Clan`, bot.user.displayAvatarURL);
     sChannel.send({embed: ssEmbed})
     message.channel.send("User has been warned!").then(m => m.delete(15000))
