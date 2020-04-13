@@ -50,8 +50,12 @@ bot.on('ready', () => {
   var logChannel = bot.channels.find(channel => channel.id === "698911263748653197");
   console.log('The bot is online!');
 
+  let embed = new Discord.RichEmbed()
+    .setTimestamp()
+    .setTitle('✅ Iam online')
+    .setFooter("MYTHIC Clan", bot.user.displayAvatarURL)
 setInterval(() => {
-  logChannel.send("Iam online!");
+  logChannel.send({embed: Embed});
 }, 60000);
 });
 

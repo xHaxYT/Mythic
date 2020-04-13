@@ -27,12 +27,8 @@ module.exports.run = async (bot, message, args) => {
     .setFooter(`MYTHIC Clan`, bot.user.displayAvatarURL);
     sChannel.send({embed: ssEmbed}).then(async msg => {
         await msg.react("✅")
-        await msg.react("❌").if('messageReactionAdd', (reaction, user) => {
-    if (user.bot) return;
-    if (reaction.emoji.name === "❌") {
-    message.delete(1000);
-    }
-})
+        await msg.react("❌")
+    })
     message.channel.send("Your report has been filed to the staff team. Thank you!").then(m => m.delete(15000))
 
 
