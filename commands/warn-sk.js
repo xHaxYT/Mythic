@@ -23,18 +23,19 @@ module.exports.run = async (bot, message, args) => {
     .setTimestamp()
     .addField("**Warned User**", `**${target.user}**`, true)
     .addField("**Moderator**", `**${message.author}**`, true)
-    .addField("**Reason**", `**${target.user.tag}** you got a warning for **${reason}**. Do not do it again! Thank you, *MYTHIC Staff team*` , true)
+    .addField("**Reason**", `**${target.user.tag}** dostal si varovanie za **${reason}**. Už to nerob! Ďakujeme, *MYTHIC Staff team*` , true)
     .setFooter(`MYTHIC Clan`, bot.user.displayAvatarURL);
     sChannel.send({embed: ssEmbed})
+    target.user.send({embed: ssEmbed})
     message.channel.send("User has been warned!").then(m => m.delete(15000))
 
 
 }
 
 module.exports.config = {
-    name: "warn",
+    name: "skwarn",
     description: "warn a user",
-    usage: "!warn <user> <reason>",
+    usage: "!skwarn <user> <reason>",
     accessableby: "Members",
-    aliases: []
+    aliases: ["warnsk", "sk-warn", "warn-sk"]
 }
