@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("**Reason**", `**${target.user.tag}** dostal si varování za **${reason}**. Už to nedělej! Děkujeme, *MYTHIC Staff team*` , true)
     .setFooter(`MYTHIC Clan`, bot.user.displayAvatarURL);
     sChannel.send({embed: ssEmbed})
-    message.author.send(ssEmbed)
+    target.user.send({embed: ssEmbed})
     message.channel.send("User has been warned!").then(m => m.delete(15000))
 
 
