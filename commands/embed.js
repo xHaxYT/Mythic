@@ -13,17 +13,14 @@ module.exports.run = async (bot, message, args) => {
     let reason = args.slice(1).join(" ")
     if(!reason) return message.channel.send(`Please provide a reason for reporting **${target.user.tag}**`).then(m => m.delete(15000))
 
-    // grab reports channel
-    let sChannel = message.guild.channels.find(x => x.name === "【🚨】reports")
-
     // send to reports channel and add tick or cross
 
     let ssEmbed = new Discord.RichEmbed()
-    .setAuthor(`[REPORT] ${message.author}`, message.author.displayAvatarURL)
+    .setAuthor(`${message.author.tag}`, message.author.displayAvatarURL)
     .setTimestamp()
     .addField("**User**", `**${message.author}**`, true)
     .setFooter(`MYTHIC Clan`, bot.user.displayAvatarURL);
-    sChannel.send({embed: ssEmbed})
+    message.channel.send({embed: ssEmbed})
 }
 
 
